@@ -1,37 +1,57 @@
-
-import React from 'react'
+import * as React from 'react';
+//import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { NavigationContainer } from '@react-navigation/native'
+//import { NavigationContainer } from '@react-navigation/native'
+import  Icon  from 'react-native-vector-icons/FontAwesome5';
+import { Text } from 'react-native';
 
-import { StyleSheet, Text, View } from 'react-native'
 
 import CostosStack from './CostosStack'
 import GazapoStack from './GazapoStack'
 import LevanteStack from './LevanteStack'
 import Conejo_al_canalStack from './Conejo_al_canalStack'
-import Prueba from '../screens/Prueba'
+
+
+
 
 
 const Tab = createBottomTabNavigator()
 
+
 export default function Navigation() {
 
     return(
-        <NavigationContainer>
-            <Tab.Navigator>
            
-                <Tab.Screen
-                name="costos"
-                component={CostosStack}
-                options={{ title: "Costos"}}
-                screenOptions ={{
-                    headerShown: false,
-                }}
-                />
-                <Tab.Screen
+         <Tab.Navigator>
+              
+             
+            <Tab.Screen
                 name="gazapo"
                 component={GazapoStack}
-                options={{ title: "Gazapo"}}
+                options={{ 
+                   tabBarIcon: ({ focused }) => (
+                        <>
+                            <Icon
+                                name='home'
+                                size={20}
+                                color={focused ? '#0a9396' : '#d62828'}
+                            />
+                            <Text
+                                allowFontScaling={false}
+                                style={{
+                                    color: focused ? '#0a9396' : '#d62828',
+                                    width: 50,
+                                    fontSize: 15,
+                                    textAlign: 'center'
+                                }}>
+                                { "Gazapo"/* Texto Aqui */}
+                               
+                            </Text>
+                        </>
+                    ),title:"ga"
+                }}
+
+                
                 />
                 <Tab.Screen
                 name="levante"
@@ -43,18 +63,19 @@ export default function Navigation() {
                 component={Conejo_al_canalStack}
                 options={{ title: "Comejo al canal"}}
                 />
-               
-
-            </Tab.Navigator>
-        </NavigationContainer>
+                        
+        </Tab.Navigator>      
     )
 }
 
-/*
+/* 
 <Tab.Screen
-                name="prueba"
-                component={Prueba}
-                options={{ title: "Prueba"}}
-                />
-                
-*/
+                name="costos"
+                component={CostosStack}
+                options={{ title: "Costos"}}
+                screenOptions ={{
+                headerShown: false,
+                 }}
+                        />
+
+**/

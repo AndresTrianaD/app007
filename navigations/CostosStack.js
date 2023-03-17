@@ -16,7 +16,7 @@ export default function CostosStack() {
         <Stack.Navigator>
           
             <Stack.Screen
-            name="costos"
+            name="costos1"
             component={Costos}
             
             screenOptions ={{
