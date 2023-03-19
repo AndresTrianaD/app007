@@ -8,21 +8,18 @@ import Costos from '../screens/Costos';
 import Navigation from './Navigation';
 import Prueba from '../screens/Prueba';
 import CostosStack from './CostosStack';
+import Layout from '../screensDos/Layout';
+
 
 
 
 const Drawer = createDrawerNavigator()
 
 export default function DrawerNavigation() {
+ 
   return (
    
-    <Drawer.Navigator 
- 
-    
-    >
-
-
-
+    <Drawer.Navigator >
         <Drawer.Screen 
         name = "Navegacion"
         component = { Navigation}
@@ -33,6 +30,12 @@ export default function DrawerNavigation() {
         component = { Costos}
         options={{ title: "Costos empresa"}}
         />
+        <Drawer.Screen 
+        name = "la"
+        component = { Layout}
+        options={{ title: "Layout"}}
+        />
+        
        
     </Drawer.Navigator>
 
@@ -41,3 +44,4 @@ export default function DrawerNavigation() {
 }
 
 //screenOptions={{ headerShown: false}}
+

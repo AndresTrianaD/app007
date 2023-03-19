@@ -5,6 +5,8 @@ import GazapoStack from '../navigations/GazapoStack'
 import LevanteStack from '../navigations/LevanteStack'
 import {Icon} from 'react-native-elements';
 import Prueba from './Prueba'
+import Layout from '../screensDos/Layout'
+
 //import Icon from '@mdi/react';
 //import { mdiRabbit } from '@mdi/js';
 
@@ -22,6 +24,9 @@ export default function Costos() {
             break;
         case "prueba":
             iconName = "cart"
+            break;
+        case "layout":
+            iconName = "home"
             break;
         
         
@@ -66,6 +71,12 @@ export default function Costos() {
                 component={Prueba}
                 options={{ title: "Prueba"}}
                 />
+        <Tab.Screen
+                name="layout"
+                component={Layout}
+                options={{ title: "Layout"}}
+                />
+        
     </Tab.Navigator>
   )
 }

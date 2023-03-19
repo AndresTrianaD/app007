@@ -1,12 +1,10 @@
 import * as React from 'react';
-//import React from 'react'
+
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-//import { NavigationContainer } from '@react-navigation/native'
-import  Icon  from 'react-native-vector-icons/FontAwesome5';
-import { Text } from 'react-native';
+
+import {Icon} from 'react-native-elements';
 
 
-import CostosStack from './CostosStack'
 import GazapoStack from './GazapoStack'
 import LevanteStack from './LevanteStack'
 import Conejo_al_canalStack from './Conejo_al_canalStack'
@@ -19,39 +17,45 @@ const Tab = createBottomTabNavigator()
 
 
 export default function Navigation() {
+    const screenOptions = (route, color) => {
+        let iconName
+        switch (route.name) {
+            case "gazapo":
+                iconName = "compass-outline"
+                break;
+            case "levante":
+                iconName = "heart-outline"
+                break;
+            case "Conejo-al-canal":
+                iconName = "star-outline"
+                break;
+        }
+        return(
+            <Icon
+                type="material-community"
+                name={iconName}
+                size={22}
+                color={color}
+            />
+        )
 
+    }
     return(
            
-         <Tab.Navigator>
-              
-             
+         <Tab.Navigator
+         initialRouteName="gazapo"
+         tabBarOption={{
+             inactiveTintColor:"#063970",
+             activeTintColor:"#eab676" 
+         }}
+         screenOptions={({ route })=>({
+             tabBarIcon: ({ color }) => screenOptions(route, color)
+         })}
+         >
             <Tab.Screen
                 name="gazapo"
                 component={GazapoStack}
-                options={{ 
-                   tabBarIcon: ({ focused }) => (
-                        <>
-                            <Icon
-                                name='home'
-                                size={20}
-                                color={focused ? '#0a9396' : '#d62828'}
-                            />
-                            <Text
-                                allowFontScaling={false}
-                                style={{
-                                    color: focused ? '#0a9396' : '#d62828',
-                                    width: 50,
-                                    fontSize: 15,
-                                    textAlign: 'center'
-                                }}>
-                                { "Gazapo"/* Texto Aqui */}
-                               
-                            </Text>
-                        </>
-                    ),title:"ga"
-                }}
-
-                
+                options={{ title:"Gazapo"}}
                 />
                 <Tab.Screen
                 name="levante"
